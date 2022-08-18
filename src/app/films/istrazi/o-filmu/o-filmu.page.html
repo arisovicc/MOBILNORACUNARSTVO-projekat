@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/films/tabs/istrazi"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>o-filmu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ion-padding">
+    <img [src]="film.imageUrl">
+    <ion-card-header>
+      <ion-card-title>{{film.text}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{film.nazivFilma}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

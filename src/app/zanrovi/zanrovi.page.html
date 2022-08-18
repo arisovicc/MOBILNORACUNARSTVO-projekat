@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+
+<!-- proveri sta je slot start-->
+    <ion-button slot="start"> 
+      <ion-back-button defaultHref="/films"></ion-back-button>
+    </ion-button>
+
+    <ion-title>Zanrovi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- kako da navigiramo do stranice films? tako sto dodajemo routerLink="films" -->
+  <ion-button class = "ionic-justify-content-center">
+    <ion-button routerLink="/films" color="tertiary" fill="solid">
+      Filmovi
+    </ion-button>
+  </ion-button>
+
+</ion-content>

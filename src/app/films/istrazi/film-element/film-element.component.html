@@ -1,0 +1,11 @@
+<ion-item> <!--Ovde je prikaz komponenti-->
+  <ion-avatar slot="start"> <!-- Kroz slotove mozemo da kreiramo neke placeholdere komponentama kao sto je ovde to uradio ion item i pozicioniramo komponentu u 
+  okviru neke druge komponente, kao ovde mi smo pozicionirali ovu slicicu na pocetak-->
+  <ion-img [src]="film.imageUrl"></ion-img>
+</ion-avatar>
+
+  <ion-label>{{film.text}}</ion-label>
+</ion-item>
+
+<!--Kako mozemo da prosledimo podatke od istrazi (parent) stranice do child stranice? 
+idemo do film-element.components.ts-->
