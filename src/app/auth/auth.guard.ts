@@ -14,10 +14,10 @@ export class AuthGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     if(!this.authService.isUserAuthenticated) {
-      // this.router.navigateByUrl('/log-in');
+      this.router.navigateByUrl('/log-in');
     }
-    // return this.authService.isUserAuthenticated;
-    return true;
+    return this.authService.isUserAuthenticated;
+    //return true;
   }
 
 }

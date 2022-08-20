@@ -6,6 +6,12 @@
 </ion-buttons>
 
     <ion-title>Filmovi</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-fab-button size="small" color="tertiary" (click)="openModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,8 +21,8 @@
     <!--Ovaj deo [film]="film" je onaj gde smo u koristili @Input()
     odnosno prosledjujemo citat od parent ka child komponenti kroz properti bajning tj uglaste zagrade-->
 
-  <ion-list> 
-    <app-film-element *ngFor="let film of films" [film]="film" [routerLink]="film.id"></app-film-element>
+  <ion-list> <!-- //router link znaci da kad kliknemo na komponentu on nas odvede na stranicu za taj film na koji smo kliknuli -->
+    <app-film-element *ngFor="let film of films" [film]="film" ></app-film-element>
   </ion-list>
 
   <ion-buttons class = "ionic-justify-content-center">

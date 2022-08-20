@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
+import { FilmModalComponent } from '../film-modal/film-modal.component';
 import { Film } from '../film.model';
 import { FilmsService } from '../films.service';
 
@@ -18,7 +19,7 @@ export class IstraziPage implements OnInit {
 
   films: Film[];
 
-  constructor(private menuCtrl: MenuController, private filmsService: FilmsService) {
+  constructor(private menuCtrl: MenuController, private filmsService: FilmsService, private modalCrtl: ModalController ) {
     console.log('constructor');
     this.films = this.filmsService.films;
    }
@@ -27,8 +28,24 @@ export class IstraziPage implements OnInit {
     this.menuCtrl.open();
    }
 
+
+
   ngOnInit() {
     console.log('ngOnInit');
+  }
+
+  openModal() {
+    this.modalCrtl.create({
+      component: FilmModalComponent,
+      componentProps: {prevod: 'Add film'}
+  }).then((modal) => {
+    modal.present();
+    return modal.onDidDismiss();
+  }).then((resultData) => {
+    if(resultData.role === 'confirm') {
+      console.log(resultData);
+    }
+  });
   }
 
   ionViewWillEnter() {

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{prevod}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> <!-- Jos jedan nacin za pristupanje poljima forme-->
+  <form #f="ngForm" (ngSubmit)="onAddFilm()">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Naziv filma</ion-label>
+            <ion-input type="text" ngModel name="nazivFilm" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Tekst</ion-label>
+            <ion-textarea type="text" rows="6" ngModel name="text" required></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-button type="submit" color="primary" expand="block" [disabled]="f.invalid">
+            Dodaj
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+
+    </ion-grid>
+  </form>
+</ion-content>

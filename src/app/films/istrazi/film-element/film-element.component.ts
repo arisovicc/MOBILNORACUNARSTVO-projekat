@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { Film } from '../../film.model';
 
 @Component({
@@ -11,8 +12,32 @@ export class FilmElementComponent implements OnInit { //ono sto smo se pitali u 
 
   @Input() film: Film = {id: 'f3', text: 'Novi', nazivFilma: 'Text', imageUrl: ''};
 
-  constructor() { }
+  constructor(private alertCtrl: AlertController) { }
 
   ngOnInit() {}
+
+  openAlert() {
+    this.alertCtrl.create({
+      header: 'Sacuvaj film',
+      message: 'Da li si siguran da zelis da sacuvas ovaj film?',
+      buttons: [
+        {
+          text: 'Sacuvaj',
+          handler: () => {
+            console.log('Sacuvaj ga!');
+          }
+        }, 
+      {
+        text: 'Otkazi',
+        role: 'cancel',
+        handler: () => {
+          console.log('Nemoj da sacuvas!');
+        }
+      }
+      ]
+    }).then((alert) => {
+      alert.present();
+    });
+  }
 
 }

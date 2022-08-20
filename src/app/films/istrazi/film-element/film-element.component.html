@@ -1,10 +1,12 @@
-<ion-item> <!--Ovde je prikaz komponenti-->
+<ion-item>
+<ion-item [routerLink]="film.id"> <!--Ovde je prikaz komponenti-->
   <ion-avatar slot="start"> <!-- Kroz slotove mozemo da kreiramo neke placeholdere komponentama kao sto je ovde to uradio ion item i pozicioniramo komponentu u 
   okviru neke druge komponente, kao ovde mi smo pozicionirali ovu slicicu na pocetak-->
   <ion-img [src]="film.imageUrl"></ion-img>
 </ion-avatar>
-
-  <ion-label>{{film.text}}</ion-label>
+<ion-label>{{film.text}}</ion-label>
+</ion-item>
+<ion-icon name="bookmark-sharp" color="tertiary" slot="end" (click)="openAlert()"></ion-icon> <!-- Ovim dodajemo ikonicu roze boje na kraju-->
 </ion-item>
 
 <!--Kako mozemo da prosledimo podatke od istrazi (parent) stranice do child stranice? 
